@@ -41,4 +41,8 @@ public class UserResource {
         return ResponseEntity.created(null).build(); //add response entity as Created
         //because we create user so it give 200 ok to 201 created
     }
+    @DeleteMapping("/users/{id}")
+    public void deleteUser(@PathVariable int id){
+        service.deleteById(id);
+    }
 }

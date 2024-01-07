@@ -27,6 +27,11 @@ public class UserDaoService {//ensure we can play with data and perform operatio
         return users.stream().filter(predicate).findFirst().orElse(null);
     }
 
+    public void deleteById(int id){ //functional programming
+        Predicate<? super User> predicate= user -> user.getId().equals(id);
+        users.removeIf(predicate);
+    }
+
     public User save(User user){
         user.setId(++userCount);
         users.add(user);
