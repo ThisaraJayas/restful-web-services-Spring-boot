@@ -24,7 +24,7 @@ public class UserDaoService {//ensure we can play with data and perform operatio
     }
     public User findOne(int id){ //functional programming
         Predicate<? super User> predicate= user -> user.getId().equals(id);
-        return users.stream().filter(predicate).findFirst().get();
+        return users.stream().filter(predicate).findFirst().orElse(null);
     }
 
     public User save(User user){
